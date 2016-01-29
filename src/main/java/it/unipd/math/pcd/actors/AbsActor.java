@@ -82,7 +82,8 @@ public abstract class AbsActor<T extends Message> extends Thread implements Acto
     			while (mailbox.size()==0) {
 					if (stop)
 						processing=true;
-					mailbox.wait();
+					else
+						mailbox.wait();
 				}
     			sender=mailbox.getsender();
     			T msg=mailbox.getmessage();
